@@ -60,11 +60,17 @@ const resumeData = {
       "Achievements": "Some Achievements"
     },
     {
-      "CompanyName": "Some Company",
-      "specialization": "Some specialization",
-      "MonthOfLeaving": "Jan",
-      "YearOfLeaving": "2018",
-      "Achievements": "Some Achievements"
+      "CompanyName": "Blockapps Brooklyn, New York, United States",
+      "specialization": "Backend developer",
+      "MonthOfLeaving": "Aug",
+      "YearOfLeaving": "2019",
+      "Achievements": `
+Ö Implemented role-based access control using Nodejs
+Ö Developed a finite state automaton using smart contracts
+Ö Added data validation and API level test cases to test both 
+failure cases and happy flow
+Ö Store the data on IPFS, in a distributed network.
+`
     }
   ],
   "skillsDescription": "Your skills here",
