@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+
 export default class Testimonials extends Component {
   render() {
     let resumeData = this.props.resumeData;
@@ -10,15 +12,15 @@ export default class Testimonials extends Component {
               <h1><span>Client Testimonials</span></h1>
             </div>
             <div className="ten columns flex-container">
-              <div className="flexslider">
-                <ul className="slides">
+              <Carousel>
+                <ul className="">
                   {
-                    resumeData.testimonials && resumeData.testimonials.map((item)=>{
-                      return(
+                    resumeData.testimonials && resumeData.testimonials.map((item) => {
+                      return (
                         <li>
                           <blockquote>
                             <p>
-                            {item.description}
+                              {item.description}
                             </p>
                             <cite>{item.name}</cite>
                           </blockquote>
@@ -27,11 +29,11 @@ export default class Testimonials extends Component {
                     })
                   }
                 </ul>
-              </div> {/* div.flexslider ends */}
+              </Carousel>
             </div> {/* div.flex-container ends */}
           </div> {/* row ends */}
         </div>  {/* text-container ends */}
       </section>
-        );
+    );
   }
 }
