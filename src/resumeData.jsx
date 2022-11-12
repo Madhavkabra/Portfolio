@@ -41,7 +41,7 @@ const resumeData = {
       "specialization": "B. Tech. - Information Technology",
       "MonthOfPassing": "August",
       "YearOfPassing": "2019",
-      "Achievements": "NSS India — C Certified "
+      "Achievements": "NSS India — C Certified"
     },
     {
       "UniversityName": "St. Norbert Senior Secondary School",
@@ -65,11 +65,12 @@ const resumeData = {
       "MonthOfLeaving": "Aug",
       "YearOfLeaving": "2019",
       "Achievements": `
-Ö Implemented role-based access control using Nodejs
-Ö Developed a finite state automaton using smart contracts
-Ö Added data validation and API level test cases to test both 
-failure cases and happy flow
-Ö Store the data on IPFS, in a distributed network.
+      - A+ Grade — Performance evaluation from past employers.
+      - Implemented role-based access control using Nodejs.
+      - Developed a finite state automaton using smart contracts.
+      - Added data validation and API level test cases to test both 
+failure cases and happy flow.
+      - Store the data on IPFS, in a distributed network.
 `
     }
   ],
