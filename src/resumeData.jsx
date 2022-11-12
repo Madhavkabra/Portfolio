@@ -34,7 +34,7 @@ const resumeData = {
   I create responsive and performant REACT APPLICATIONS, which are responsive in all screen sizes 📱🖥️. I can re-engineer immensely complex designs and code, providing significantly improved performance.
   I pride myself on designing intuitive interfaces that provides great USER EXPERIENCE.`,
   "address": "India",
-  "website": "",
+  "website": "https://madhavkabra.github.io/Portfolio/",
   "education": [
     {
       "UniversityName": "Rajiv Gandhi Proudyogiki Vishwavidyalaya",
