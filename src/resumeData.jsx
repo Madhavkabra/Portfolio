@@ -2,13 +2,13 @@ import React from 'react';
 import UpworkIcon from './assets/upwork.svg'
 
 const resumeData = {
-  "imagebaseurl": "",
+  "imagebaseurl": `https://picsum.photos/2133/1200`,
   "name": "Madhav Kabra",
   "role": "Senior Frontend Developer",
   "linkedinId": "https://www.linkedin.com/in/madhavkabra/",
   "whatsappLink": " https://wa.me/9229996730?text=Hey%20Madhav,%20Lets%20connect",
   "skypeid": "live:madhav.kabra1100",
-  "roleDescription": "I like dabbling in various parts of frontend development and like to learn about new technologies, write technical articles or simply play games in my free time.",
+  "roleDescription": "I like dabbling in various parts of frontend development and like to learn about new technologies, collaboratively work with developers remotely, travel around peaceful places or simply watch animes in my free time.",
   "socialLinks": [
     {
       "name": "linkedin",
@@ -54,11 +54,70 @@ const resumeData = {
   ],
   "work": [
     {
-      "CompanyName": "Some Company",
-      "specialization": "Some specialization",
-      "MonthOfLeaving": "Jan",
-      "YearOfLeaving": "2018",
-      "responsibilites": ""
+      "CompanyName": "Dechea GmBH, Leipzig, Germany, Europe",
+      "specialization": "Frontend Developer",
+      "MonthOfLeaving": "Aug",
+      "YearOfLeaving": "2019",
+      "responsibilites": [
+        `Research new tools and technologies that can benefit the 
+team with faster development process`,
+        `Automate the export of design tokens from Figma to code 
+base and integrate them in UI to keep the theming consistent`,
+        `Achieve a clean code coverage of 90%`,
+        `Write browser automation test cases and integrate them in
+        pipeline to catch any failing feature before deploying it to 
+production`,
+        `Collaborate closely with product owner and scrum master to 
+refine the requirement, process backlog and sprint planning.`
+      ]
+    },
+    {
+      "CompanyName": "Talent500, Bangalore, India",
+      "specialization": "Frontend Developer",
+      "MonthOfLeaving": "Aug",
+      "YearOfLeaving": "2019",
+      "responsibilites": [
+        `Created reusable redux state management for the pages. 
+that display similar information, fetched from different 
+sources.`,
+        `Developed filters which can be generated using simple 
+configs with zero code change.`,
+        `Developed a library of atomic components using custom CSS.`,
+        `Peer code reviews to improve and maintain overall code 
+quality.`
+      ]
+    },
+    {
+      "CompanyName": "HashiCorp,  San Francisco, California, United States",
+      "specialization": "Senior Frontend Developer",
+      "MonthOfLeaving": "Aug",
+      "YearOfLeaving": "2019",
+      "responsibilites": [
+        `Automate lint fixes post commit using hooks`,
+        `Improved code quality by removal of code duplication and smells using Sonar cloud.`,
+        `Integrated zoom-sdk to allow pre-planned zoom sessions.`,
+        `Integrated IBM video player API into the app to allow video session live streaming.`
+      ]
+    },
+    {
+      "CompanyName": "Blockapps Brooklyn, New York, United States",
+      "specialization": "Backend developer",
+      "MonthOfLeaving": "Aug",
+      "YearOfLeaving": "2019",
+      "responsibilites": [`A+ Grade — Performance evaluation from past employers.`, `Implemented role-based access control using Nodejs.`,
+        `Deeloped a finite state automaton using smart contracts.`, `Added data validation  and API level test cases to test both 
+failure c a ses and happy flow.`, `Store the data on IPFS, in a distributed network.`,
+      ]
+    },
+    {
+      "CompanyName": "Blockapps Brooklyn, New York, United States",
+      "specialization": "Backend developer",
+      "MonthOfLeaving": "Aug",
+      "YearOfLeaving": "2019",
+      "responsibilites": [`A+ Grade — Performance evaluation from past employers.`, `Implemented role-based access control using Nodejs.`,
+        `Deeloped a finite state automaton using smart contracts.`, `Added data validation  and API level test cases to test both 
+failure c a ses and happy flow.`, `Store the data on IPFS, in a distributed network.`,
+      ]
     },
     {
       "CompanyName": "Blockapps Brooklyn, New York, United States",
@@ -181,48 +240,84 @@ failure c a ses and happy flow.`, `Store the data on IPFS, in a distributed netw
         {
           "skillname": "Atlassian tools like Jira, Kanban board and Confluence",
           "skillPercent": 0.9
-        }], 
+        }],
     }
   ],
   "portfolio": [
-  {
-    
-      "name": "project1",
-        "description": "mobileapp",
-    "imgurl": "images/portfolio/phone.jpg"
- },
     {
- 
-  "name": "project2",
-    "description": "mobileapp",
-      "imgurl": "images/portfolio/project.jpg"
-  },
-  {
-      "name": "project3",
- 
-  "description": "mobileapp",
-    "imgurl": "images/portfolio/project2.png"
+      "name": "Dechea - Patient diagnosis, treatment and management system",
+      "technologies": ["React.js", "HTML", "CSS",],
+      "description": "Atlassian tools like Jira, Kanban board and Confluence",
+      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
     },
-   {
-      "name": "project4",
-        "description": "mobileapp",
-   
-    "imgurl": "images/portfolio/phone.jpg"
+    {
+      "name": "Talent500 - Canvas",
+
+      "technologies": ["React.js", "HTML", "CSS",],
+      "description": "mobileapp",
+      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+    },
+    {
+      "name": "Tagmango",
+      "technologies": ["React.js", "HTML", "CSS",],
+      "description": "Website",
+      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+    },
+    {
+      "name": "Ensight",
+      "technologies": ["React.js", "HTML", "CSS",],
+      "description": "Website",
+      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+    },
+    {
+      "name": "Hashicorp",
+      "technologies": ["React.js", "HTML", "CSS",],
+      "description": "Website",
+      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+    },
+    {
+      "name": "Message Dapp",
+      "technologies": ["React.js", "HTML", "CSS",],
+      "description": "Ethereum and IPFS based message, events and file sharing app",
+      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+    },
+    {
+      "name": "Material UI Dashboard",
+      "technologies": ["React.js", "HTML", "CSS",],
+      "description": "Website",
+      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+    },
+    {
+      "name": "Scalable Tic tac toe",
+      "technologies": ["React.js", "HTML", "CSS",],
+      "description": "Game",
+      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+    },
+    {
+      "name": "Autocomplete Gmail UI",
+      "technologies": ["React.js", "HTML", "CSS",],
+      "description": "mobileapp",
+      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+    },
+    {
+      "name": "Note list",
+      "technologies": ["React.js", "HTML", "CSS",],
+      "description": "mobileapp",
+      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+    },
+    {
+      "name": "Multi step form",
+      "technologies": ["React.js", "HTML", "CSS",],
+      "description": "Material UI and firebase based multi step form",
+      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
     }
-  ],     
-"testimonials": [
+  ],
+  "testimonials": [
     {
       "description": "A very dedicated engineer, with a very observant eye for code quality and good practice. He has a knack for quickly adapting to the development ecosystem and contributing, not only to the functionalities but taking initiatives to enforce best practices and follow them which reflects on his work.",
-       "name": "Karun Thomas, Manager, Talent500"
+      "name": "Karun Thomas, Manager, Talent500"
     },
   ]
-    
-    
-    
-    
-    
-    
-    
-  }
+}
 
-  export default resumeData
+export default resumeData
