@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { ImPointRight } from "react-icons/im";
+import resumeData from "../resumeData";
 
 function AboutCard() {
   return (
@@ -8,7 +9,7 @@ function AboutCard() {
       <Card.Body>
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
-            Hi Everyone, I am <span className="purple">Soumyajit Behera </span>
+            Hi Everyone, I am <span className="purple">{resumeData.name} </span>
             from <span className="purple"> Bhubaneswar, India.</span>
             <br />I am a junior pursuing IMSC in Maths and Computing in BIT
             Mesra.
@@ -31,7 +32,7 @@ function AboutCard() {
           <p style={{ color: "rgb(155 126 172)" }}>
             "Strive to build things that make a difference!"{" "}
           </p>
-          <footer className="blockquote-footer">Soumyajit</footer>
+          <footer className="blockquote-footer">Madhav</footer>
         </blockquote>
       </Card.Body>
     </Card>
