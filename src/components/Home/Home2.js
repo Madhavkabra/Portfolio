@@ -2,12 +2,6 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
-import {
-  AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-} from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
 import resumeData from "../resumeData";
 
 function Home2() {
@@ -20,12 +14,12 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I fell in love with programming and I have at least learnt
+              I fell in love with programming and I have learnt
               something, I think… 🤷‍♂️
               <br />
               <br />I am fluent in classics like
               <i>
-                <b className="purple"> C++, Javascript and Python. </b>
+                <b className="purple"> React.js, Javascript, HTML and CSS. </b>
               </i>
               <br />
               <br />
@@ -34,7 +28,7 @@ function Home2() {
                 <b className="purple">Web Technologies and Products </b> and
                 also in areas related to{" "}
                 <b className="purple">
-                  Deep Learning and Natural Launguage Processing.
+                  Health care, Application tracking system and Content monetization.
                 </b>
               </i>
               <br />
@@ -44,12 +38,12 @@ function Home2() {
               <i>
                 <b className="purple">
                   {" "}
-                  Modern Javascript Library and Frameworks
+                  Modern Databases and Architectures
                 </b>
               </i>
               &nbsp; like
               <i>
-                <b className="purple"> React.js and Next.js</b>
+                <b className="purple"> FaunaDB, Bit.dev, Micro-fronends.</b>
               </i>
             </p>
           </Col>
