@@ -3,7 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import ReactGA from 'react-ga';
 
+ReactGA.initialize('G-2STMFNGRNC', {
+  debug: true,
+  titleCase: false,
+});
+ReactGA.ga('set', 'checkProtocolTask', null);
+ReactGA.pageview(window.location.pathname + window.location.search);
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
