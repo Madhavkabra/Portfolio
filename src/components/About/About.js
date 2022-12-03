@@ -39,6 +39,13 @@ function About() {
         </h1>
 
         <Techstack />
+        <Row style={{
+          justifyContent: "center",
+          paddingTop: "30px",
+          paddingBottom: "50px",
+        }}>
+          And a few more. Check out the RESUME.
+        </Row>
 
         <h1 className="project-heading">
           <strong className="purple">Tools</strong> I use

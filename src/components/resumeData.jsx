@@ -14,7 +14,7 @@ const resumeData = {
   "linkedinId": "https://www.linkedin.com/in/madhavkabra/",
   "whatsappLink": " https://wa.me/9229996730?text=Hey%20Madhav,%20Lets%20connect",
   "skypeid": "live:madhav.kabra1100",
-  "roleDescription": "I like dabbling in various parts of frontend development and like to learn about new technologies, collaboratively work with developers remotely, travel around peaceful places or simply watch animes in my free time.",
+  "roleDescription": "I like dabbling in various parts of frontend development and like to learn about new technologies, collaboratively work with developers remotely.",
   "socialLinks": [
     {
       "name": "linkedin",
