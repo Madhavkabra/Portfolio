@@ -36,11 +36,9 @@ My personal portfolio <a href="https://madhavkabra.github.io/Portfolio/" target=
 This project was built using these technologies.
 
 - React.js
-- Node.js
-- Express.js
 - CSS3
 - VsCode
-- Vercel
+- Github Pages
 
 ## Features
 
