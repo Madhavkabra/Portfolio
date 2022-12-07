@@ -91,7 +91,7 @@ function NavBar() {
             {/* 
             <Nav.Item>
               <Nav.Link
-                href="https://blogs.soumya-jit.tech/"
+                href="https://blogs.tech/"
                 target="_blank"
                 rel="noreferrer"
               >
