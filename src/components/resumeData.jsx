@@ -1,11 +1,21 @@
 import React from 'react';
 import {
   AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { SiUpwork, SiSkype } from "react-icons/si";
+import { GiClick } from 'react-icons/gi';
+import hasiconfImg from '../Assets/Projects/Hashicorp.png'
+import canvasImg from '../Assets/Projects/Canvas.png'
+import tagmangoImg from '../Assets/Projects/Tagmango.png'
+import decheaImg from '../Assets/Projects/Dechea.png'
+import muiBoardImg from '../Assets/Projects/muiBoard.png'
+import ticTacToeImg from '../Assets/Projects/ticTacToe.png'
+import autocompleteImg from '../Assets/Projects/Autocomplete.png'
+import notelistImg from '../Assets/Projects/notelist.png'
+import ensightImg from '../Assets/Projects/ensight.png'
+import messageDapp from '../Assets/Projects/messageDapp.png'
+import multiStepImg from '../Assets/Projects/multiStep.jpg'
 
 const resumeData = {
   "imagebaseurl": `https://picsum.photos/2133/1200`,
@@ -252,70 +262,115 @@ failure c a ses and happy flow.`, `Store the data on IPFS, in a distributed netw
   "portfolio": [
     {
       "name": "Dechea - Patient diagnosis, treatment and management system",
-      "technologies": ["React.js", "HTML", "CSS",],
-      "description": "Atlassian tools like Jira, Kanban board and Confluence",
-      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+      "technologies": ["React.js", "HTML", "CSS", "Bit.dev", "Serverless", "Graphql", "Material UI", "Figma"],
+      "description": `Manage patients and their treatments, by finding them the cheapest and
+       the most effective treatment and healthcare available for them. Developed a 2D mouth diagram where
+       the doctors can add the treatments and also schedule future appointments.`,
+      "imgurl": decheaImg,
+      buttonLabel: `Website`,
+      ghLink: 'https://dechea.com/',
+      icon: <GiClick />
     },
     {
       "name": "Talent500 - Canvas",
 
-      "technologies": ["React.js", "HTML", "CSS",],
-      "description": "mobileapp",
-      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+      "technologies": ["React.js", "Styled components", "Redux", "HTML", "CSS", "Adobe xd"],
+      "description": `Application tracking system that allows whole user journey from
+       creation of job post, adding positions, creating job workflows, moving canditates
+        among multiple stages of screening and also the analytics to the admin.`,
+      "imgurl": canvasImg,
+      buttonLabel: `Website`,
+      ghLink: 'https://talent500.co/',
+      icon: <GiClick />
     },
     {
       "name": "Tagmango",
-      "technologies": ["React.js", "HTML", "CSS",],
-      "description": "Website",
-      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
-    },
-    {
-      "name": "Ensight",
-      "technologies": ["React.js", "HTML", "CSS",],
-      "description": "Website",
-      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+      "technologies": ["React.js", "HTML", "CSS", "Ant Design", "Google analytics",
+        "Firebase", "Node.js", "MongoDB"],
+      "description": ` Create, launch and scale within minutes, automate key functions, use various
+       marketing tools like coupon codes, live commerce and select high-conversion landing pages.
+       Developed analytical features to get a bird’s eye view of all the important data points and 
+       insights about everything relevant to user! The Overview section collates information from all
+        the other subsections. Created application to skyrocket content and course sales.
+      Also developed a chat system for users and creators where they can interact with community directly on a one-to-one or one-to-many basis, this helps in community building.
+       `,
+      "imgurl": tagmangoImg,
+      buttonLabel: `Website`,
+      ghLink: 'https://tagmango.com/',
+      icon: <GiClick />
     },
     {
       "name": "Hashicorp",
-      "technologies": ["React.js", "HTML", "CSS",],
-      "description": "Website",
-      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+      "technologies": ["React.js", "Lerna", "Material UI", "Firebase", "Cloud functions", "Zoom sdk", "IBM Video player", "HTML", "CSS"],
+      "description": `Created their virtual event hosting platform called Hashiconf, where moderators can 
+      manage the event spanned over multiple days for the attendees by hosting zoom meetings (using zoom sdk) 
+      and sessions. Also the attendees can chat (based on firebase) with each other during a session. 
+      The moderators can also upload videos and run the same for attendees (IBM video player integration])`,
+      "imgurl": hasiconfImg,
+      ghLink: "https://www.hashicorp.com/events/webinars/adfinis-hashiconf-2020-recap",
+      buttonLabel: `Website`,
+    },
+    {
+      "name": "Ensight",
+      "technologies": ["React.js", "Styled Components", "HighCharts", "Ag-grid", "HTML", "CSS"],
+      "description": `A product that collects real time data about the energy consumption of
+      devices used in an industry. The data is further analysed to see where the energy can be saved
+      by automatically switching on and off the devices using IOT. I specifically developed the analytical dashboard,
+      where the realtime data in huge amount can be filtered and be represented in the form of
+      charts and graphs for the further optimisation. Also the user can apply mathematical functions on this data.`,
+      buttonLabel: `Website`,
+      ghLink: 'https://www.ensight.co/',
+      icon: <GiClick />,
+      "imgurl": ensightImg
     },
     {
       "name": "Message Dapp",
-      "technologies": ["React.js", "HTML", "CSS",],
-      "description": "Ethereum and IPFS based message, events and file sharing app",
-      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+      "technologies": ["React.js", "Bootstrap", "IPFS", "Ethereum", "Metamask", "Solidity (Basic)", "React-web3"],
+      "description": `Ethereum and IPFS based platform where user can create both private and public messages,
+       events and files. The private once's can be shared with other user based on their address and the public 
+       ones are available to everyone without having to be shared. The storage of the shared files is managed using
+        IPFS`,
+      "imgurl": messageDapp
     },
     {
       "name": "Material UI Dashboard",
       "technologies": ["React.js", "HTML", "CSS",],
-      "description": "Website",
-      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+      "description": "Made for fun - The app is a clone of Material based theme which demonstrates my abolity clone a pixel perfect UI from scrach.",
+      "imgurl": muiBoardImg,
+      ghLink: 'https://github.com/Madhavkabra/MaterialUIDashboard',
+      demoLink: 'https://madhavkabra.github.io/MaterialUIDashboard/',
     },
     {
       "name": "Scalable Tic tac toe",
       "technologies": ["React.js", "HTML", "CSS",],
-      "description": "Game",
-      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+      "description": "Made for fun - It is a Tic tac toc game made using Reactjs. The code for this game is scalable with respect to the size of grid.",
+      "imgurl": ticTacToeImg,
+      demoLink: 'https://madhavkabra.github.io/GmailAutocomplete/',
+      ghLink: 'https://github.com/Madhavkabra/GmailAutocomplete',
     },
     {
       "name": "Autocomplete Gmail UI",
-      "technologies": ["React.js", "HTML", "CSS",],
-      "description": "mobileapp",
-      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+      "technologies": ["React.js", "Material UI", "Draft.js", "Storybook", "Unit tests"],
+      "description": "A part of gmail's autocomplete functionality for emails in the inbox.",
+      "imgurl": autocompleteImg,
+      demoLink: 'https://madhavkabra.github.io/GmailAutocomplete/',
+      ghLink: 'https://github.com/Madhavkabra/GmailAutocomplete',
     },
     {
       "name": "Note list",
       "technologies": ["React.js", "HTML", "CSS",],
-      "description": "mobileapp",
-      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+      "description": "Made for fun - The app provides ability to create a note with different titles and colors.",
+      "imgurl": notelistImg,
+      demoLink: 'https://madhavkabra.github.io/Notelist/',
+      ghLink: 'https://github.com/Madhavkabra/Notelist',
     },
     {
       "name": "Multi step form",
       "technologies": ["React.js", "HTML", "CSS",],
       "description": "Material UI and firebase based multi step form",
-      "imgurl": `https://picsum.photos/seed/image-${Math.random() * 100}/900/600`
+      "imgurl": multiStepImg,
+      ghLink: 'https://github.com/Madhavkabra/MultiStepForm',
+      icon: <GiClick />,
     }
   ],
   "testimonials": [
