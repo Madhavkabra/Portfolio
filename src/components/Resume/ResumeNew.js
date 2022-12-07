@@ -9,7 +9,7 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const resumeLink =
-  "https://raw.githubusercontent.com/Madhavkabra/Portfolio/portfolio/v2/src/Resume%20Madhav%202022_compressed.pdf";
+  "https://raw.githubusercontent.com/Madhavkabra/Portfolio/portfolio/v2/src/Assets/S%20Resume%20Madhav%20dec%202022_compressed.pdf";
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
