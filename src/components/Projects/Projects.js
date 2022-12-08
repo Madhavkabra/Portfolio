@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 import resumeData from '../resumeData';
+import ReactGA from 'react-ga';
 
 function Projects() {
+
+  useEffect(() => {
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname);
+  }, [window.location.pathname, window.location])
+
   return (
     <Container fluid className="project-section">
       <Particle />

@@ -5,6 +5,7 @@ import Particle from "../Particle";
 import pdf from "../../Assets/../Assets/S Resume Madhav dec 2022_compressed.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
+import ReactGA from 'react-ga';
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -15,8 +16,21 @@ function ResumeNew() {
   const [width, setWidth] = useState(1200);
 
   useEffect(() => {
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname);
+  }, [window.location.pathname, window.location])
+
+  useEffect(() => {
     setWidth(window.innerWidth);
   }, []);
+
+  const trackDownload = () => {
+    ReactGA.event({
+      category: 'Resume',
+      action: 'Download',
+      label: 'Resume Download',
+    })
+  }
 
   return (
     <div>
@@ -28,6 +42,7 @@ function ResumeNew() {
             href={pdf}
             target="_blank"
             style={{ maxWidth: "250px" }}
+            onClick={trackDownload}
           >
             <AiOutlineDownload />
             &nbsp;Download CV
