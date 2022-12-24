@@ -31,25 +31,23 @@ function Home2() {
               <br />
               My field of Interest's are building new &nbsp;
               <i>
-                <b className="purple">Web Technologies and Products </b> and
+                Web Technologies and Products and
                 also in areas related to{" "}
-                <b className="purple">
-                  Health care, Application tracking system and Content monetization.
-                </b>
+                Health care, Application tracking system and Content monetization.
               </i>
               <br />
               <br />
               Whenever possible, I also apply my passion for developing products
-              with <b className="purple">Node.js</b> and
+              with Node.js and
               <i>
-                <b className="purple">
-                  {" "}
-                  Modern Databases and Architectures
-                </b>
+
+                {" "}
+                Modern Databases and Architectures
+
               </i>
               &nbsp; like
               <i>
-                <b className="purple"> FaunaDB, Bit.dev, Micro-fronends.</b>
+                FaunaDB, Bit.dev, Micro-fronends.
               </i>
             </p>
           </Col>
