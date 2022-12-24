@@ -1,19 +1,33 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import resumeData from "../resumeData";
 import Home2 from "./Home2";
 import Type from "./Type";
-import ReactGA from 'react-ga';
 import { BsChevronDoubleDown } from "react-icons/bs"
 
 function Home() {
   const endRef = useRef(null)
+  const [showScrollBtn, setShowScrollBtn] = useState(true);
 
   const scrollToBottom = () => {
     endRef.current?.scrollIntoView({ behavior: "smooth" })
   }
+
+  useEffect(() => {
+    function onScroll() {
+      if (window.innerHeight - document.getElementById("scrollDown").getBoundingClientRect().bottom > 50) {
+        setShowScrollBtn(false)
+      } else {
+        setShowScrollBtn(true)
+      }
+    }
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
 
   useEffect(() => {
     gtag('event', 'Home page', {
@@ -73,9 +87,11 @@ function Home() {
             </Col>
           </Row>
         </Container>
-        <BsChevronDoubleDown onClick={scrollToBottom}
-          className="scroll-btn"
-        />
+        <div style={{ "opacity": showScrollBtn ? 1 : 0 }}>
+          <BsChevronDoubleDown id="scrollDown" onClick={scrollToBottom}
+            className="scroll-btn"
+          />
+        </div>
       </Container>
       <Home2 />
       <div ref={endRef} />
