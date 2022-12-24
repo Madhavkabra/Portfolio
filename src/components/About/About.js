@@ -11,9 +11,11 @@ import ReactGA from 'react-ga';
 function About() {
 
   useEffect(() => {
-    ReactGA.set({ page: window.location.pathname });
-    ReactGA.pageview(window.location.pathname);
-  }, [window.location.pathname, window.location])
+    gtag('event', 'About page', {
+      'event_category': 'Page view',
+      'event_label': 'About page view',
+    });
+  }, [])
 
   return (
     <Container fluid className="about-section">

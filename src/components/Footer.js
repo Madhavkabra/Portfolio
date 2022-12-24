@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import {
-  AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-} from "react-icons/ai";
 import resumeData from "./resumeData";
 
 function Footer() {
+  useEffect(() => {
+    gtag('event', 'Footer', {
+      'event_category': 'Page view',
+      'event_label': 'Footer view',
+    });
+  }, [])
+
   let date = new Date();
   let year = date.getFullYear();
   return (

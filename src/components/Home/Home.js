@@ -16,9 +16,18 @@ function Home() {
   }
 
   useEffect(() => {
-    ReactGA.set({ page: window.location.pathname });
-    ReactGA.pageview(window.location.pathname);
-  }, [window.location.pathname, window.location])
+    gtag('event', 'Home page', {
+      'event_category': 'Page view',
+      'event_label': 'Home page view',
+    });
+  }, [])
+
+  const trackTalk = () => {
+    gtag('event', 'Calendly', {
+      'event_category': 'Click',
+      'event_label': 'Calendly view',
+    });
+  }
 
   return (
     <section>
@@ -44,8 +53,11 @@ function Home() {
                 <div className="discuss-text">
                   Want to discuss your website, idea, job or a project ?
                 </div>
-                <Button className="book-btn" variant="primary" href="https://calendly.com/madhavkabra/30min" target="_blank">
+                <Button className="book-btn" variant="primary" onClick={trackTalk} href="https://calendly.com/madhavkabra/30min" target="_blank">
                   LET'S TALK
+                </Button>
+                <Button style={{ marginLeft: 16 }} variant="secondary" href="/resume" target="_blank">
+                  Resume
                 </Button>
               </div>
 

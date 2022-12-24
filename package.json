@@ -35,7 +35,13 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "globals": {
+      "gtag": true
+    },
+    "rules": {
+      "no-undef": 0
+    }
   },
   "browserslist": {
     "production": [

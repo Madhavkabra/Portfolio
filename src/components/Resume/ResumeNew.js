@@ -16,20 +16,18 @@ function ResumeNew() {
   const [width, setWidth] = useState(1200);
 
   useEffect(() => {
-    ReactGA.set({ page: window.location.pathname });
-    ReactGA.pageview(window.location.pathname);
-  }, [window.location.pathname, window.location])
-
-  useEffect(() => {
+    gtag('event', 'Resume page', {
+      'event_category': 'Page view',
+      'event_label': 'Resume page view',
+    });
     setWidth(window.innerWidth);
-  }, []);
+  }, [])
 
   const trackDownload = () => {
-    ReactGA.event({
-      category: 'Resume',
-      action: 'Download',
-      label: 'Resume Download',
-    })
+    gtag('event', 'Resume download', {
+      'event_category': 'Download',
+      'event_label': 'Resume download',
+    });
   }
 
   return (

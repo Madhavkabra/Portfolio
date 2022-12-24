@@ -5,6 +5,13 @@ import Tilt from "react-parallax-tilt";
 import resumeData from "../resumeData";
 
 function Home2() {
+  const trackView = (link) => {
+    gtag('event', `Link ${link}`, {
+      'event_category': link,
+      'event_label': link,
+    });
+  };
+
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
@@ -66,6 +73,7 @@ function Home2() {
                     className="icon-colour  home-social-icons"
                     target="_blank"
                     rel="noreferrer"
+                    onClick={() => trackView(socialLink.name)}
                   >
                     {socialLink.icon}
                   </a>
