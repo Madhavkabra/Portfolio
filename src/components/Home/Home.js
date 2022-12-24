@@ -56,7 +56,7 @@ function Home() {
                 <Button className="book-btn" variant="primary" onClick={trackTalk} href="https://calendly.com/madhavkabra/30min" target="_blank">
                   LET'S TALK
                 </Button>
-                <Button style={{ marginLeft: 16 }} variant="secondary" href="/resume" target="_blank">
+                <Button style={{ marginLeft: 16 }} variant="secondary" href="/resume#/resume" target="_blank">
                   Resume
                 </Button>
               </div>
