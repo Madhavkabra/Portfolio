@@ -20,22 +20,15 @@ import ReactGA from 'react-ga';
 
 const TRACKING_ID = "G-30XW55ESY7";
 function App() {
-  const [load, upadateLoad] = useState(true);
 
   useEffect(() => {
     ReactGA.initialize(TRACKING_ID);
-    const timer = setTimeout(() => {
-      upadateLoad(false);
-    }, 1200);
-
-    return () => clearTimeout(timer);
   }, []);
 
 
   return (
     <Router>
-      <Preloader load={load} />
-      <div className="App" id={load ? "no-scroll" : "scroll"}>
+      <div className="App">
         <Navbar />
         <ScrollToTop />
         <Routes>
