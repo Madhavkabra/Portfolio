@@ -318,14 +318,15 @@ button:focus {
 }
 
 .book-btn {
-  line-height: 2.5 !important;
   padding: 0 10px !important;
-  font-size: 15px !important;
   background-color: #fff !important;
   color: #6d20c5d7 !important;
   border-color: #fff !important;
   font-weight: 600 !important;
   letter-spacing: 2px !important;
+  border-radius: 5px !important;
+  line-height: 1;
+  padding: 10px 10px !important;
 }
 
 .home-content {
@@ -753,6 +754,19 @@ button:focus {
   padding-top: 10px !important;
   font-size: 1.1em !important;
   font-family: sans-serif !important;
+}
+
+.home-btns {
+  display: flex;
+  align-items: center;
+}
+
+.resume-btn {
+  height: 100%;
+  margin-left: 10px;
+  background-color: #934cce5e !important;
+  border-color: #934cce5e !important;
+  color: rgb(250, 250, 250) !important;
 }
 
 .like-btn {

@@ -6,6 +6,8 @@ import resumeData from "../resumeData";
 import Home2 from "./Home2";
 import Type from "./Type";
 import { BsChevronDoubleDown } from "react-icons/bs"
+import Nav from "react-bootstrap/Nav";
+import { Link } from "react-router-dom";
 
 function Home() {
   const endRef = useRef(null)
@@ -67,12 +69,25 @@ function Home() {
                 <div className="discuss-text">
                   Want to discuss your website, idea, job or a project ?
                 </div>
-                <Button className="book-btn" variant="primary" onClick={trackTalk} href="https://calendly.com/madhavkabra/30min" target="_blank">
-                  LET'S TALK
-                </Button>
-                <Button style={{ marginLeft: 16 }} variant="secondary" href="/resume#/resume" target="_blank">
-                  Resume
-                </Button>
+                <div className="home-btns">
+                  <Nav.Link
+                    className="book-btn"
+                    as={Link}
+                    target="_blank"
+                    onClick={trackTalk}
+                    to="https://calendly.com/madhavkabra/30min"
+                  >
+                    LET'S TALK
+                  </Nav.Link>
+                  <Nav.Link
+                    className="book-btn resume-btn"
+                    as={Link}
+                    to="/resume"
+                    target="_blank"
+                  >
+                    Resume
+                  </Nav.Link>
+                </div>
               </div>
 
             </Col>
