@@ -39,6 +39,7 @@ function Home() {
   }, [])
 
   const trackTalk = () => {
+    window.open("https://calendly.com/madhavkabra/30min", "_blank")
     gtag('event', 'Calendly', {
       'event_category': 'Click',
       'event_label': 'Calendly view',
@@ -72,10 +73,7 @@ function Home() {
                 <div className="home-btns">
                   <Nav.Link
                     className="book-btn"
-                    as={Link}
-                    target="_blank"
                     onClick={trackTalk}
-                    to="https://calendly.com/madhavkabra/30min"
                   >
                     LET'S TALK
                   </Nav.Link>
