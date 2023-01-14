@@ -466,6 +466,65 @@ button:focus {
   color: #700c86 !important;
 }
 
+.blogContent {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  text-align: justify;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blogTech {
+  background-color: rgba(243, 244, 246, 0.19) !important;
+  color: rgb(233, 233, 233) !important;
+  margin-right: 8px;
+  margin-bottom: 4px;
+}
+
+.blog-container {
+  min-height: calc(100vh - 60px) !important;
+}
+
+.disabled {
+  cursor: not-allowed !important;
+}
+
+.disabled>* {
+  pointer-events: none;
+}
+
+.disabled:hover .blogTitle {
+  color: rgb(175, 168, 254) !important;
+}
+
+.blogTitle {
+  margin: 1rem 0 !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.75rem !important;
+  color: rgb(175, 168, 254) !important;
+}
+
+.blogFooter {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0 0 0 !important;
+  background-color: transparent !important;
+}
+
+.blogCard {
+  cursor: pointer;
+  margin: auto;
+}
+
+.blogCard:hover .blogTitle {
+  color: rgb(89, 77, 255) !important
+}
+
+.blogTech>h6 {
+  margin: 0;
+}
+
 /* --------- */
 /* Footer */
 /* --------- */
