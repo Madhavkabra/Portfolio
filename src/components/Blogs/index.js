@@ -19,10 +19,43 @@ const blogs = [{
 },
 {
   title: "Responsive Web Design 101: An Introduction to Flexible Layouts and Media Queries”",
-  link: null,
+  link: "https://medium.com/@madhav.kabra1100/responsive-web-design-101-an-introduction-to-flexible-layouts-and-media-queries-3c9ed6f04beb",
   content: "How can you make sure your website delivers the same high-quality user experience on any screen size? The answer is responsive design.",
   readTime: '4 min',
   stack: ["HTML", "CSS"]
+},
+{
+  title: "“React.js Simplified: A Step-by-Step Guide to Building a Simple App”",
+  link: "https://medium.com/@madhav.kabra1100/react-js-simplified-a-step-by-step-guide-to-building-a-simple-app-315bde048733",
+  content: "Building a React.js app using a functional component is a great way to get started with the framework. Here’s a step-by-step guide on how to build your first React.js app using a functional component.",
+  readTime: '4 min',
+  stack: ["React.js"]
+},
+{
+  title: "Revamping Your CSS for Lightning - Fast Load Times(Part 1)",
+  link: "https://medium.com/@madhav.kabra1100/revamping-your-css-for-lightning-fast-load-times-part-1-f2c947c66334",
+  content: "Optimizing CSS can significantly improve the performance, reduce the loading time, and enhance the user experience. Here are some techniques that can be used to optimize the CSS for your websites",
+  readTime: '4 min',
+  stack: ["CSS"]
+},
+{
+  title: "Revamping Your CSS for Lightning - Fast Load Times(Part 2)",
+  link: null,
+  content: "The blog explains more CSS optimisation techniques like Media Queries, CDN network, Optimize Images and CSS sprites.",
+  readTime: '4 min',
+  stack: ["CSS"]
+}, {
+  title: "Revamping Your CSS for Lightning - Fast Load Times(Part 2)",
+  link: null,
+  content: "The blog explains more CSS optimisation techniques like Media Queries, CDN network, Optimize Images and CSS sprites.",
+  readTime: '4 min',
+  stack: ["CSS"]
+}, {
+  title: "React Router: Making Navigation Effortless in React.js",
+  link: null,
+  content: "React Router is a popular library for navigation in React.js applications. It provides a simple and flexible way to define routes, navigate between pages, and manage navigation state. In this article, we'll explore the basics of React Router and how to use it to create seamless navigation in your React.js app.",
+  readTime: '4 min',
+  stack: ["React.js", "React router"]
 }]
 
 function About() {
