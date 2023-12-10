@@ -3,7 +3,7 @@
   <a href="https://madhavkabra.github.io/Portfolio/" target="_blank">https://madhavkabra.github.io/Portfolio/</a>
 </h2>
 <div align="center">
-  <img alt="Demo" src="./Images/readme-img1.png" />
+  <img alt="Demo" src="./Images/readme-img2.jpg" />
 </div>
 
 <br/>
