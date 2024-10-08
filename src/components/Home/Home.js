@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import resumeData from "../resumeData";
@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 function Home() {
   const endRef = useRef(null)
   const [showScrollBtn, setShowScrollBtn] = useState(true);
-
+  
   const scrollToBottom = () => {
     endRef.current?.scrollIntoView({ behavior: "smooth" })
   }
@@ -75,7 +75,7 @@ function Home() {
                     className="book-btn"
                     onClick={trackTalk}
                   >
-                    LET'S TALK
+                    Contact Me
                   </Nav.Link>
                   <Nav.Link
                     className="book-btn resume-btn"

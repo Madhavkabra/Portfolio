@@ -21,33 +21,26 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I fell in love with programming and I love to solve complex problems and love new challenges.
+              I have a deep passion for programming and enjoy tackling complex problems and embracing new challenges.
               <br />
-              <br />I am fluent in classics like
+              <br />
+              I'm proficient in technologies such as
               <i>
-                <b className="purple"> React.js, Javascript, HTML and CSS. </b>
+                <b className="purple"> Next.js, React.js, TypeScript, and UI/UX design.</b>
               </i>
               <br />
               <br />
-              My field of Interest's are building new &nbsp;
+              My areas of interest include developing innovative
               <i>
-                Web Technologies and Products and
-                also in areas related to{" "}
-                Health care, Application tracking system and Content monetization.
+                web technologies and products, such as AI chatbots, AI widgets, B2B SaaS solutions (e.g., healthcare platforms, AI-driven customer support, HR management systems, recruitment platforms, CMS), B2C SaaS products, Chrome extensions, Gmail plugins, and Outlook add-ins.
               </i>
               <br />
               <br />
-              Whenever possible, I also apply my passion for developing products
-              with Node.js and
-              <i>
-
-                {" "}
-                Modern Databases and Architectures
-
-              </i>
+              I'm also passionate about creating products using
+              <i> modern databases and architectures</i>
               &nbsp; like
               <i>
-                FaunaDB, Bit.dev, Micro-fronends.
+                {" "}FaunaDB, MongoDB, Prisma, Firebase, Bit.dev, and micro-frontend architectures.
               </i>
             </p>
           </Col>
@@ -65,7 +58,7 @@ function Home2() {
             </p>
             <ul className="home-about-social-links">
               {resumeData.socialLinks.map((socialLink) => (
-                <li className="social-icons">
+                <li className="social-icons" key={socialLink.name}>
                   <a
                     href={socialLink.url}
                     className="icon-colour  home-social-icons"

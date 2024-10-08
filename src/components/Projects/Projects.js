@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 import resumeData from '../resumeData';
-
+import Github from "./Github";
 function Projects() {
 
   useEffect(() => {
@@ -12,7 +12,6 @@ function Projects() {
       'event_label': 'Project page view',
     });
   }, [])
-
 
   return (
     <Container fluid className="project-section">
@@ -25,8 +24,8 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          {resumeData.portfolio.map(project => (
-            <Col md={4} className="project-card">
+          {resumeData.portfolio.map((project, index) => (
+            <Col md={4} className="project-card" key={index}>
               <ProjectCard
                 imgPath={project.imgurl}
                 isBlog={false}
@@ -41,6 +40,7 @@ function Projects() {
           ))}
         </Row>
       </Container>
+      <Github />
     </Container>
   );
 }

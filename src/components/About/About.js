@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
-import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.png";
 import Toolstack from "./Toolstack";
-import ReactGA from 'react-ga';
-
+import resumeData from '../resumeData';
 function About() {
 
   useEffect(() => {
@@ -16,6 +14,8 @@ function About() {
       'event_label': 'About page view',
     });
   }, [])
+
+
 
   return (
     <Container fluid className="about-section">
@@ -48,20 +48,20 @@ function About() {
         </h1>
 
         <Techstack />
-        <Row style={{
+        {/* <Row style={{
           justifyContent: "center",
           paddingTop: "30px",
           paddingBottom: "50px",
         }}>
           And a few more. Check out the RESUME.
-        </Row>
+        </Row> */}
 
         <h1 className="project-heading">
           <strong className="purple">Tools</strong> I use
         </h1>
         <Toolstack />
 
-        <Github />
+        
       </Container>
     </Container>
   );

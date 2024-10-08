@@ -2,15 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Particle from '../Particle';
-import pdf from '../../Assets/../Assets/Resume Madhav 2023 Dated.pdf';
+import pdf from '../../Assets/../Assets/Madhav Resume 2024.pdf';
 import { AiOutlineDownload } from 'react-icons/ai';
 import { Document, Page, pdfjs } from 'react-pdf';
-import ReactGA from 'react-ga';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const resumeLink =
-  'https://raw.githubusercontent.com/Madhavkabra/Portfolio/master/src/Assets/Resume%20Madhav%202023%20Dated.pdf';
+  'https://raw.githubusercontent.com/Madhavkabra/Portfolio/master/src/Assets/Madhav%20Resume%202024.pdf';
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
@@ -38,16 +37,18 @@ function ResumeNew() {
       >
         <Particle />
         <Row style={{ justifyContent: 'center', position: 'relative' }}>
-          <Button
-            variant='primary'
+          <a
             href={pdf}
-            target='_blank'
-            style={{ maxWidth: '250px' }}
+            download="Madhav_Resume_2024.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={trackDownload}
           >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
+            <Button variant="primary" style={{ maxWidth: '250px' }}>
+              <AiOutlineDownload />
+              &nbsp;Download CV
+            </Button>
+          </a>
         </Row>
 
         <Row className='resume'>
@@ -59,6 +60,7 @@ function ResumeNew() {
               pageNumber={1}
               scale={width > 786 ? 1.7 : 0.6}
             />
+            <hr style={{ width: '67%' }} />
             <Page
               pageNumber={2}
               scale={width > 786 ? 1.7 : 0.6}

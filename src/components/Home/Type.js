@@ -8,6 +8,7 @@ function Type() {
         strings: [
           "Senior Frontend Developer",
           "MERN Stack Developer",
+          "Full Stack Developer",
           "React.js",
           "Javascript",
         ],
