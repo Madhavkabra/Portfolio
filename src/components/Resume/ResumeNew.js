@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Particle from '../Particle';
-import pdf from '../../Assets/../Assets/Madhav Resume 2024.pdf';
+import pdf from '../../Assets/../Assets/Madhav K. Kabra.pdf';
 import { AiOutlineDownload } from 'react-icons/ai';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-
-const resumeLink =
-  'https://raw.githubusercontent.com/Madhavkabra/Portfolio/master/src/Assets/Madhav%20Resume%202024.pdf';
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
@@ -53,7 +50,7 @@ function ResumeNew() {
 
         <Row className='resume'>
           <Document
-            file={resumeLink}
+            file={pdf}
             className='d-flex flex-column align-items-center justify-content-center'
           >
             <Page

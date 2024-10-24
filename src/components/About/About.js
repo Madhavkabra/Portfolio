@@ -4,8 +4,8 @@ import Particle from "../Particle";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.png";
-import Toolstack from "./Toolstack";
-import resumeData from '../resumeData';
+// import Toolstack from "./Toolstack";
+// import resumeData from '../resumeData';
 function About() {
 
   useEffect(() => {
@@ -56,10 +56,10 @@ function About() {
           And a few more. Check out the RESUME.
         </Row> */}
 
-        <h1 className="project-heading">
+        {/* <h1 className="project-heading">
           <strong className="purple">Tools</strong> I use
         </h1>
-        <Toolstack />
+        <Toolstack /> */}
 
         
       </Container>
