@@ -1,7 +1,7 @@
 import React from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import { SiUpwork, SiSkype } from "react-icons/si";
+import { SiUpwork } from "react-icons/si";
 import { GiClick } from "react-icons/gi";
 import hasiconfImg from "../Assets/Projects/Hashicorp.png";
 import canvasImg from "../Assets/Projects/Canvas.png";
@@ -21,7 +21,6 @@ const resumeData = {
   role: "Senior Frontend Developer",
   linkedinId: "https://www.linkedin.com/in/madhavkabra/",
   whatsappLink: " https://wa.me/9229996730?text=Hey%20Madhav,%20Lets%20connect",
-  skypeid: "live:madhav.kabra1100",
   roleDescription:
     "I like dabbling in various parts of frontend development and like to learn about new technologies, collaboratively work with developers remotely.",
   socialLinks: [
@@ -34,11 +33,6 @@ const resumeData = {
       name: "github",
       url: "https://github.com/Madhavkabra",
       icon: <AiFillGithub />,
-    },
-    {
-      name: "skype",
-      url: "https://join.skype.com/invite/uYOoOO90jxo3",
-      icon: <SiSkype />,
     },
     {
       name: "upwork",

@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
@@ -9,6 +9,7 @@ import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
+  AiOutlinePhone,
 } from "react-icons/ai";
 
 import { CgFileDocument } from "react-icons/cg";
@@ -27,6 +28,14 @@ function NavBar() {
   }
 
   window.addEventListener("scroll", scrollHandler);
+
+  const trackTalk = () => {
+    window.open("https://calendly.com/madhav-kabra730/30min", "_blank");
+    gtag("event", "Calendly", {
+      event_category: "Click",
+      event_label: "Calendly view",
+    });
+  };
 
   return (
     <Navbar
@@ -107,8 +116,26 @@ function NavBar() {
                 <ImBlog style={{ marginBottom: "2px" }} /> Blogs
               </Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={Link} to="/consultation">
+                <AiOutlinePhone style={{ marginBottom: "2px" }} /> Consult
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="d-md-none mt-3 text-center">
+              <button
+                className="btn btn-outline-light w-100"
+                onClick={trackTalk}
+              >
+                Book a Free Call
+              </button>
+            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
+        <Nav.Item className="d-none d-md-block">
+          <div className="book-call-btn" onClick={trackTalk}>
+            Book a Free Call
+          </div>
+        </Nav.Item>
       </Container>
     </Navbar>
   );

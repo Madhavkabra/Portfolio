@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import Blog from "./Blog";
+import { Helmet } from "react-helmet";
 
 const blogs = [{
   title: "“React.js: revolutionising the way we build user interfaces”",
@@ -61,18 +62,35 @@ const blogs = [{
 function About() {
 
   useEffect(() => {
-    gtag('event', 'About page', {
-      'event_category': 'Page view',
-      'event_label': 'About page view',
+    gtag("event", "About page", {
+      event_category: "Page view",
+      event_label: "About page view",
     });
-  }, [])
+  }, []);
 
   return (
     <Container fluid className="about-section blog-container">
+      <Helmet>
+        <title>Blog Articles | Madhav Kabra - Developer Insights</title>
+        <meta
+          name="description"
+          content="Read blog articles written by Madhav Kabra about React, Node.js, software development tips, coding best practices, and the latest in web technologies."
+        />
+        <meta
+          name="keywords"
+          content="web development blog, React tutorials, Node.js articles, JavaScript blog, Madhav Kabra blog, full-stack writing"
+        />
+        <meta property="og:title" content="Blog | Madhav Kabra" />
+        <meta
+          property="og:description"
+          content="Insights, tutorials, and technical thoughts from full-stack developer Madhav Kabra."
+        />
+        <meta property="og:type" content="article" />
+      </Helmet>
       <Particle />
       <Container>
         <Row>
-          {blogs.map(blog =>
+          {blogs.map((blog) => (
             <Col
               xxl={3}
               xl={3}
@@ -88,7 +106,7 @@ function About() {
                 {...blog}
               />
             </Col>
-          )}
+          ))}
         </Row>
       </Container>
     </Container>

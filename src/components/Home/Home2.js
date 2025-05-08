@@ -1,16 +1,10 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
-import Tilt from "react-parallax-tilt";
 import resumeData from "../resumeData";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 function Home2() {
-  const trackView = (link) => {
-    gtag('event', `Link ${link}`, {
-      'event_category': link,
-      'event_label': link,
-    });
-  };
 
   return (
     <Container fluid className="home-about-section" id="about">
@@ -44,10 +38,13 @@ function Home2() {
               </i>
             </p>
           </Col>
-          <Col md={4} className="myAvtar">
-            <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
-            </Tilt>
+          <Col md={4} style={{ paddingBottom: 20 }}>
+            <Player
+              src={require("../../Assets/profile.json")}
+              autoplay
+              loop
+              style={{ height: "450px" }}
+            />
           </Col>
         </Row>
         <Row>

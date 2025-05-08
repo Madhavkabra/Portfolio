@@ -11,6 +11,7 @@ function Type() {
           "Full Stack Developer",
           "React.js",
           "Javascript",
+          "4 years, countless commits — all remote.",
         ],
         autoStart: true,
         loop: true,

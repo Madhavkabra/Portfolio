@@ -1,24 +1,40 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.png";
 import Toolstack from "./Toolstack";
-import resumeData from '../resumeData';
+import resumeData from "../resumeData";
 function About() {
-
   useEffect(() => {
-    gtag('event', 'About page', {
-      'event_category': 'Page view',
-      'event_label': 'About page view',
+    gtag("event", "About page", {
+      event_category: "Page view",
+      event_label: "About page view",
     });
-  }, [])
-
-
+  }, []);
 
   return (
     <Container fluid className="about-section">
+      <Helmet>
+        <title>About Me | Madhav Kabra - Full-Stack Developer</title>
+        <meta
+          name="description"
+          content="Learn more about Madhav Kabra, a full-stack web developer with a strong foundation in JavaScript, React, Node.js, and building scalable applications."
+        />
+        <meta
+          name="keywords"
+          content="Madhav Kabra, about developer, web developer bio, software engineer profile, React developer, backend developer"
+        />
+        <meta name="author" content="Madhav Kabra" />
+        <meta property="og:title" content="About Me | Madhav Kabra" />
+        <meta
+          property="og:description"
+          content="Discover Madhav Kabra’s background, skills, education, and approach to full-stack web development."
+        />
+        <meta property="og:type" content="profile" />
+      </Helmet>
       <Particle />
       <Container>
         <Row style={{ justifyContent: "center", padding: "10px" }}>
