@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import Blog from "./Blog";
 import { Helmet } from "react-helmet";
+import StrapiBlog from "./StrapiBlog";
 
-const blogs = [{
+const staticBlogs = [{
   title: "“React.js: revolutionising the way we build user interfaces”",
   link: "https://medium.com/@madhav.kabra1100/react-js-revolutionising-the-way-we-build-user-interfaces-f261ece08af9",
   content: "React is a JavaScript library used to create user interfaces. It is a JavaScript library for building reusable UI components, which makes it easy to build and maintain large web applications. It uses a virtual DOM (a lightweight in-memory representation of the actual DOM) to improve the performance of updates. This makes it faster and more efficient than other libraries and frameworks. React was developed and is maintained by Facebook, and it has a large and active developer community.",
@@ -60,12 +61,38 @@ const blogs = [{
 }]
 
 function About() {
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     gtag("event", "About page", {
       event_category: "Page view",
       event_label: "About page view",
     });
+  }, []);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      const apiKey = process.env.REACT_APP_STRAPI_API_KEY; // Access the API key from environment variable
+      const apiUrl = process.env.REACT_APP_STRAPI_API_URL; // Access the API URL from environment variable
+
+      const response = await fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,  // Using the API key in Authorization header
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data, "----data")
+        setBlogs(data.data);
+      } else {
+        console.error("Error fetching blogs:", response.statusText);
+      }
+    };
+
+    fetchBlogs();
   }, []);
 
   return (
@@ -90,7 +117,7 @@ function About() {
       <Particle />
       <Container>
         <Row>
-          {blogs.map((blog) => (
+          {staticBlogs.map((blog) => (
             <Col
               xxl={3}
               xl={3}
@@ -104,6 +131,35 @@ function About() {
             >
               <Blog
                 {...blog}
+              />
+            </Col>
+          ))}
+        </Row>
+        <Row>
+          {blogs.map((blog) => (
+            <Col
+              xxl={3}
+              xl={3}
+              lg={4}
+              md={6}
+              sm={1}
+              style={{
+                justifyContent: "center",
+                paddingBottom: "50px",
+              }}
+            >
+              <StrapiBlog
+                key={blog.id}
+                blog={{
+                  title: blog.seoTitle || blog.title,
+                  link: `/blogs/${blog.slug}`,
+                  content: blog.content,
+                  readTime: blog.readTime, // If not provided, calculate it
+                  stack: [],
+                  image: '',
+                  seoTitle: blog.seoTitle,
+                  seoDescription: blog.seoDescription,
+                }}
               />
             </Col>
           ))}
