@@ -65,7 +65,7 @@ function NavBar() {
                 <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
               </Nav.Link>
             </Nav.Item>
-            
+
             <Nav.Item>
               <Nav.Link
                 as={Link}
@@ -85,7 +85,7 @@ function NavBar() {
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> Experience
               </Nav.Link>
             </Nav.Item>
-            
+
             <Nav.Item>
               <Nav.Link
                 as={Link}
@@ -126,14 +126,14 @@ function NavBar() {
                 className="btn btn-outline-light w-100"
                 onClick={trackTalk}
               >
-                Book a Free Call
+                Let's Talk
               </button>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
         <Nav.Item className="d-none d-md-block">
           <div className="book-call-btn" onClick={trackTalk}>
-            Book a Free Call
+            Let's Talk
           </div>
         </Nav.Item>
       </Container>

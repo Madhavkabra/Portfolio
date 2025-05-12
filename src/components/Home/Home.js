@@ -97,7 +97,7 @@ function Home() {
                     className="book-btn"
                     onClick={trackTalk}
                   >
-                    Contact Me
+                    Let's Talk
                   </Nav.Link>
                   <Nav.Link
                     className="book-btn resume-btn"
