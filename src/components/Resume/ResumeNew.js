@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
-import resume2025 from "../../Assets/madhav may resume 2025.pdf";
+import resume2025 from "../../Assets/may madhav resume 2025.pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import { Helmet } from "react-helmet";
 
