@@ -4,7 +4,7 @@ module.exports = [
   {
     name: 'strapi::cors',
     config: {
-    origin: ['https://your-frontend.vercel.app', 'https://portfolio-git-feature-strapi-madys-projects-35fcb676.vercel.app'],
+    origin: ['mady.techsavvyfit.com', 'https://portfolio-git-feature-strapi-madys-projects-35fcb676.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
       credentials: true,
     },
