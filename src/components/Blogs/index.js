@@ -61,8 +61,12 @@ const staticBlogs = [{
 }]
 
 function About() {
-  const [blogs, setBlogs] = useState([]);
-
+  const [blogs, setBlogs] = useState([...staticBlogs]);
+  const [page, setPage] = useState(1);
+  const [pageSize] = useState(4);
+  const [allBlogs, setAllBlogs] = useState([]);
+  const [paginatedBlogs, setPaginatedBlogs] = useState([]);
+  const [pageCount, setPageCount] = useState(1);
   useEffect(() => {
     gtag("event", "About page", {
       event_category: "Page view",
@@ -75,18 +79,30 @@ function About() {
       const apiKey = process.env.REACT_APP_STRAPI_API_KEY; // Access the API key from environment variable
       const apiUrl = process.env.REACT_APP_STRAPI_API_URL; // Access the API URL from environment variable
 
-      const response = await fetch(apiUrl, {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${apiKey}`,  // Using the API key in Authorization header
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await fetch(
+        `${apiUrl}?pagination[pageSize]=100&sort=publishDate:desc`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data, "----data")
-        setBlogs(data.data);
+        const strapiBlogs = data.data.map((blog) => ({
+          ...blog,
+          isStrapi: true,
+        }));
+
+        const combined = [
+          ...staticBlogs.map((blog) => ({ ...blog, isStrapi: false })),
+          ...strapiBlogs,
+        ];
+
+        setAllBlogs(combined);
       } else {
         console.error("Error fetching blogs:", response.statusText);
       }
@@ -94,6 +110,16 @@ function About() {
 
     fetchBlogs();
   }, []);
+
+  useEffect(() => {
+    const total = allBlogs.length;
+    const count = Math.ceil(total / pageSize);
+    setPageCount(count);
+
+    const start = (page - 1) * pageSize;
+    const end = start + pageSize;
+    setPaginatedBlogs(allBlogs.slice(start, end));
+  }, [allBlogs, page, pageSize]);
 
   return (
     <Container fluid className="about-section blog-container">
@@ -117,53 +143,54 @@ function About() {
       <Particle />
       <Container>
         <Row>
-          {staticBlogs.map((blog) => (
+          {paginatedBlogs.map((blog, idx) => (
             <Col
+              key={blog.id || `static-${idx}`}
               xxl={3}
               xl={3}
               lg={4}
               md={6}
               sm={1}
-              style={{
-                justifyContent: "center",
-                paddingBottom: "50px",
-              }}
+              style={{ justifyContent: "center", paddingBottom: "50px" }}
             >
-              <Blog
-                {...blog}
-              />
+              {blog.isStrapi ? (
+                <StrapiBlog
+                  blog={{
+                    title: blog.seoTitle || blog.title,
+                    link: `/blogs/${blog.slug}`,
+                    content: blog.content,
+                    readTime: blog.readTime,
+                    stack: [],
+                    image: "",
+                    seoTitle: blog.seoTitle,
+                    seoDescription: blog.seoDescription,
+                  }}
+                />
+              ) : (
+                <Blog {...blog} />
+              )}
             </Col>
           ))}
         </Row>
-        <Row>
-          {blogs.map((blog) => (
-            <Col
-              xxl={3}
-              xl={3}
-              lg={4}
-              md={6}
-              sm={1}
-              style={{
-                justifyContent: "center",
-                paddingBottom: "50px",
-              }}
-            >
-              <StrapiBlog
-                key={blog.id}
-                blog={{
-                  title: blog.seoTitle || blog.title,
-                  link: `/blogs/${blog.slug}`,
-                  content: blog.content,
-                  readTime: blog.readTime, // If not provided, calculate it
-                  stack: [],
-                  image: '',
-                  seoTitle: blog.seoTitle,
-                  seoDescription: blog.seoDescription,
-                }}
-              />
-            </Col>
-          ))}
-        </Row>
+        <div className="pagination-controls text-center my-4">
+          <button
+            onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+            disabled={page === 1}
+            className="btn btn-outline-light mx-2"
+          >
+            Previous
+          </button>
+          <span className="text-white">
+            Page {page} of {pageCount}
+          </span>
+          <button
+            onClick={() => setPage((prev) => Math.min(prev + 1, pageCount))}
+            disabled={page === pageCount}
+            className="btn btn-outline-light mx-2"
+          >
+            Next
+          </button>
+        </div>
       </Container>
     </Container>
   );
