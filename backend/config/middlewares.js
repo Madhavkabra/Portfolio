@@ -4,12 +4,12 @@ module.exports = [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['https://your-frontend.vercel.app'],
+    origin: ['https://your-frontend.vercel.app', 'https://portfolio-a65yqzkxq-madys-projects-35fcb676.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
       credentials: true,
     },
   },
   'strapi::security',
-  'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
