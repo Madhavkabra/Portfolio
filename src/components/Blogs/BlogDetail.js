@@ -53,8 +53,8 @@ const BlogDetail = () => {
 
   return (
     <div className="home-about-section mx-auto"style={{ maxWidth: '90ch', padding: "2rem" }}>
-      <h1 className="purple">{title}</h1>
-      <p className="text-white">
+      <h1 className="purple text-start">{title}</h1>
+      <p className="text-white text-start">
         <em>{new Date(publishDate).toLocaleDateString()}</em>
       </p>
       <div
