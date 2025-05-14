@@ -52,7 +52,7 @@ const BlogDetail = () => {
   const nextBlog = allBlogs[currentIndex + 1];
 
   return (
-    <div className="home-about-section" style={{ padding: "2rem" }}>
+    <div className="home-about-section mx-auto"style={{ maxWidth: '90ch', padding: "2rem" }}>
       <h1 className="purple">{title}</h1>
       <p className="text-white">
         <em>{new Date(publishDate).toLocaleDateString()}</em>
