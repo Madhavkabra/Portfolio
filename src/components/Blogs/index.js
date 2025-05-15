@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 import Particle from "../Particle";
 import Blog from "./Blog";
 import { Helmet } from "react-helmet";
@@ -73,6 +73,7 @@ function About() {
   const [allBlogs, setAllBlogs] = useState([]);
   const [paginatedBlogs, setPaginatedBlogs] = useState([]);
   const [pageCount, setPageCount] = useState(1);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     if (typeof gtag !== "undefined") {
       gtag("event", "About page", {
@@ -84,20 +85,21 @@ function About() {
 
   useEffect(() => {
     const fetchBlogs = async () => {
+      setLoading(true);
       try {
         const apiKey = process.env.REACT_APP_STRAPI_API_KEY;
         const apiUrl = process.env.REACT_APP_STRAPI_API_URL;
 
-      const response = await fetch(
-        `${apiUrl}?pagination[pageSize]=100&sort=publishDate:desc&populate=*`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+        const response = await fetch(
+          `${apiUrl}?pagination[pageSize]=100&sort=publishDate:desc&populate=*`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${apiKey}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -116,6 +118,8 @@ function About() {
         setAllBlogs(combined);
       } catch (error) {
         console.error("Error fetching blogs:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -153,55 +157,67 @@ function About() {
       </Helmet>
       <Particle />
       <Container>
-        <Row>
-          {paginatedBlogs.map((blog, idx) => (
-            <Col
-              key={blog.id || `static-${idx}`}
-              xxl={3}
-              xl={3}
-              lg={4}
-              md={6}
-              sm={1}
-              style={{ justifyContent: "center", paddingBottom: "50px" }}
-            >
-              {blog.isStrapi ? (
-                <StrapiBlog
-                  blog={{
-                    title: blog.seoTitle || blog.title,
-                    link: `/blogs/${blog.slug}`,
-                    content: blog.content,
-                    readTime: blog.readTime,
-                    stack: blog?.categories?.length ? blog.categories.map((category) => category.name) : [],
-                    image: blog.image?.[0]?.url,
-                    seoTitle: blog.seoTitle,
-                    seoDescription: blog.seoDescription,
-                  }}
-                />
-              ) : (
-                <Blog {...blog} />
-              )}
-            </Col>
-          ))}
-        </Row>
-        <div className="pagination-controls text-center my-4">
-          <button
-            onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-            disabled={page === 1}
-            className="btn btn-outline-light mx-2"
-          >
-            Previous
-          </button>
-          <span className="text-white">
-            Page {page} of {pageCount}
-          </span>
-          <button
-            onClick={() => setPage((prev) => Math.min(prev + 1, pageCount))}
-            disabled={page === pageCount}
-            className="btn btn-outline-light mx-2"
-          >
-            Next
-          </button>
-        </div>
+        {loading ? (
+          <div className="text-center my-5">
+            <Spinner animation="border" role="status" variant="light">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </div>
+        ) : (
+          <>
+            <Row>
+              {paginatedBlogs.map((blog, idx) => (
+                <Col
+                  key={blog.id || `static-${idx}`}
+                  xxl={3}
+                  xl={3}
+                  lg={4}
+                  md={6}
+                  sm={1}
+                  style={{ justifyContent: "center", paddingBottom: "50px" }}
+                >
+                  {blog.isStrapi ? (
+                    <StrapiBlog
+                      blog={{
+                        title: blog.seoTitle || blog.title,
+                        link: `/blogs/${blog.slug}`,
+                        content: blog.content,
+                        readTime: blog.readTime,
+                        stack: blog?.categories?.length
+                          ? blog.categories.map((category) => category.name)
+                          : [],
+                        image: blog.image?.[0]?.url,
+                        seoTitle: blog.seoTitle,
+                        seoDescription: blog.seoDescription,
+                      }}
+                    />
+                  ) : (
+                    <Blog {...blog} />
+                  )}
+                </Col>
+              ))}
+            </Row>
+            <div className="pagination-controls text-center my-4">
+              <button
+                onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+                disabled={page === 1}
+                className="btn btn-outline-light mx-2"
+              >
+                Previous
+              </button>
+              <span className="text-white">
+                Page {page} of {pageCount}
+              </span>
+              <button
+                onClick={() => setPage((prev) => Math.min(prev + 1, pageCount))}
+                disabled={page === pageCount}
+                className="btn btn-outline-light mx-2"
+              >
+                Next
+              </button>
+            </div>
+          </>
+        )}
       </Container>
     </Container>
   );
