@@ -80,7 +80,7 @@ function About() {
       const apiUrl = process.env.REACT_APP_STRAPI_API_URL; // Access the API URL from environment variable
 
       const response = await fetch(
-        `${apiUrl}?pagination[pageSize]=100&sort=publishDate:desc`,
+        `${apiUrl}?pagination[pageSize]=100&sort=publishDate:desc&populate=*`,
         {
           method: "GET",
           headers: {
@@ -160,8 +160,8 @@ function About() {
                     link: `/blogs/${blog.slug}`,
                     content: blog.content,
                     readTime: blog.readTime,
-                    stack: [],
-                    image: "",
+                    stack: blog?.categories?.length ? blog.categories.map((category) => category.name) : [],
+                    image: blog.image?.[0]?.url,
                     seoTitle: blog.seoTitle,
                     seoDescription: blog.seoDescription,
                   }}

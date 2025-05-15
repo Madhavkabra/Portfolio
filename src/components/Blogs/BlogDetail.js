@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Badge, Row } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 
 const BlogDetail = () => {
@@ -14,7 +15,7 @@ const BlogDetail = () => {
         const apiKey = process.env.REACT_APP_STRAPI_API_KEY;
         const apiUrl = process.env.REACT_APP_STRAPI_API_URL;
 
-        const allRes = await fetch(`${apiUrl}?sort=publishDate:asc`, {
+        const allRes = await fetch(`${apiUrl}?sort=publishDate:asc&populate=*`, {
           headers: {
             Authorization: `Bearer ${apiKey}`,
             "Content-Type": "application/json",
@@ -44,7 +45,8 @@ const BlogDetail = () => {
   if (loading) return <div>Loading blog...</div>;
   if (!blog) return <div>Blog not found</div>;
 
-  const { title, content, readTime, createdAt, publishDate, link } = blog;
+  const { title, content, readTime, createdAt, publishDate, link, categories } = blog;
+  const imageUrl = blog?.image?.[0]?.url || null;
 
   // Get current blog index and next/prev
   const currentIndex = allBlogs.findIndex((b) => b.slug === slug);
@@ -52,11 +54,26 @@ const BlogDetail = () => {
   const nextBlog = allBlogs[currentIndex + 1];
 
   return (
-    <div className="home-about-section mx-auto"style={{ maxWidth: '90ch', padding: "2rem" }}>
+    <div className="detail-blog-section mx-auto" style={{ maxWidth: '90ch', padding: "2rem" }}>
+      <Row>
+        {categories?.length && categories.map((tech, i) => (
+          <Badge key={i} bg="rgb(244 244 244 / 99%)" className="blogTech w-auto">
+            <h6>{tech.name}</h6>
+          </Badge>
+        ))}
+      </Row>
       <h1 className="purple text-start">{title}</h1>
-      <p className="text-white text-start">
+      <p className="text-white text-start small">
         <em>{new Date(publishDate).toLocaleDateString()}</em>
       </p>
+      {imageUrl && (
+        <img
+          variant="top"
+          src={`${process.env.REACT_APP_STRAPI_BASE_URL}${imageUrl}`}
+          alt={title}
+          style={{ height: "300px", objectFit: "cover" }}
+        />
+      )}
       <div
         className="home-about-body text-white"
         dangerouslySetInnerHTML={{ __html: content }}

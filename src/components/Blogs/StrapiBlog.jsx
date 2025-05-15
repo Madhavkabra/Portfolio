@@ -1,8 +1,10 @@
 import React from "react";
 import { Card, Badge } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const StrapiBlog = ({ blog }) => {
   const { title, content, stack = [], readTime, link, image } = blog;
+  const navigate = useNavigate();
 
   const calculateReadTime = (text) => {
     const wordsPerMinute = 200;
@@ -18,7 +20,7 @@ const StrapiBlog = ({ blog }) => {
   return (
     <Card
       className={link ? "blogCard" : "blogCard disabled"}
-      onClick={link ? () => window.open(link, "_blank") : () => {}}
+      onClick={link ? () => navigate(link) : () => {}}
       style={{
         width: "18rem",
         textAlign: "left",
@@ -28,7 +30,7 @@ const StrapiBlog = ({ blog }) => {
       {image && (
         <Card.Img
           variant="top"
-          src={image}
+          src={`${process.env.REACT_APP_STRAPI_BASE_URL}${image}`}
           alt={title}
           style={{ height: "200px", objectFit: "cover" }}
         />

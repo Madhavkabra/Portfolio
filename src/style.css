@@ -658,11 +658,8 @@ button:focus {
 }
 
 .card-img-top {
-  max-height: 100px !important;
-  max-width: 100px !important;
-  padding: 20px !important;
-  opacity: 0.8 !important;
-  border-radius: 100% !important;
+  max-width: 100% !important;
+  opacity: 0.5 !important;
 }
 
 .blog-img {
@@ -1081,4 +1078,10 @@ button:focus {
   margin-bottom: 20px;
   color: white;
   text-align: left;
+}
+
+.detail-blog-section {
+  position: relative;
+  padding-bottom: 70px !important;
+  padding-top: 140px !important;
 }
