@@ -15,12 +15,15 @@ const BlogDetail = () => {
         const apiKey = process.env.REACT_APP_STRAPI_API_KEY;
         const apiUrl = process.env.REACT_APP_STRAPI_API_URL;
 
-        const allRes = await fetch(`${apiUrl}?sort=publishDate:asc&populate=*`, {
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "application/json",
-          },
-        });
+        const allRes = await fetch(
+          `${apiUrl}?sort=publishDate:asc&populate=*`,
+          {
+            headers: {
+              Authorization: `Bearer ${apiKey}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         const allData = await allRes.json();
         const blogList = allData.data || [];
@@ -31,7 +34,6 @@ const BlogDetail = () => {
         } else {
           console.error("No blog found with this slug");
         }
-
       } catch (err) {
         console.error("Error fetching blog:", err);
       } finally {
@@ -45,7 +47,8 @@ const BlogDetail = () => {
   if (loading) return <div>Loading blog...</div>;
   if (!blog) return <div>Blog not found</div>;
 
-  const { title, content, readTime, createdAt, publishDate, link, categories } = blog;
+  const { title, content, readTime, createdAt, publishDate, link, categories } =
+    blog;
   const imageUrl = blog?.image?.[0]?.url || null;
 
   // Get current blog index and next/prev
@@ -54,13 +57,21 @@ const BlogDetail = () => {
   const nextBlog = allBlogs[currentIndex + 1];
 
   return (
-    <div className="detail-blog-section mx-auto" style={{ maxWidth: '90ch', padding: "2rem" }}>
+    <div
+      className="detail-blog-section mx-auto"
+      style={{ maxWidth: "90ch", padding: "2rem" }}
+    >
       <Row>
-        {categories?.length && categories.map((tech, i) => (
-          <Badge key={i} bg="rgb(244 244 244 / 99%)" className="blogTech w-auto">
-            <h6>{tech.name}</h6>
-          </Badge>
-        ))}
+        {categories?.length &&
+          categories.map((tech, i) => (
+            <Badge
+              key={i}
+              bg="rgb(244 244 244 / 99%)"
+              className="blogTech w-auto"
+            >
+              <h6>{tech.name}</h6>
+            </Badge>
+          ))}
       </Row>
       <h1 className="purple text-start">{title}</h1>
       <p className="text-white text-start small">
