@@ -67,13 +67,12 @@ const staticBlogs = [
 ];
 
 function About() {
-  const [blogs, setBlogs] = useState([...staticBlogs]);
+  const [blogs, setBlogs] = useState([]);
   const [page, setPage] = useState(1);
-  const [pageSize] = useState(4);
-  const [allBlogs, setAllBlogs] = useState([]);
-  const [paginatedBlogs, setPaginatedBlogs] = useState([]);
+  const [pageSize] = useState(8);
   const [pageCount, setPageCount] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   useEffect(() => {
     if (typeof gtag !== "undefined") {
       gtag("event", "About page", {
@@ -86,12 +85,14 @@ function About() {
   useEffect(() => {
     const fetchBlogs = async () => {
       setLoading(true);
+      setError(null);
+
       try {
         const apiKey = process.env.REACT_APP_STRAPI_API_KEY;
         const apiUrl = process.env.REACT_APP_STRAPI_API_URL;
 
-        const response = await fetch(
-          `${apiUrl}?pagination[pageSize]=100&sort=publishDate:desc&populate=*`,
+        const countResponse = await fetch(
+          `${apiUrl}?pagination[page]=1&pagination[pageSize]=1`,
           {
             method: "GET",
             headers: {
@@ -101,40 +102,66 @@ function About() {
           }
         );
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
+        const countData = await countResponse.json();
+        const totalStrapiBlogs = countData.meta?.pagination?.total || 0;
+        const totalCombinedBlogs = staticBlogs.length + totalStrapiBlogs;
+        const totalPages = Math.ceil(totalCombinedBlogs / pageSize);
+
+        if (page > totalPages) {
+          setPage(totalPages);
+          return;
         }
-        const data = await response.json();
-        const strapiBlogs = data.data.map((blog) => ({
-          ...blog,
-          isStrapi: true,
-        }));
+        setPageCount(totalPages);
 
-        const combined = [
-          ...staticBlogs.map((blog) => ({ ...blog, isStrapi: false })),
-          ...strapiBlogs,
-        ];
+        let blogsToShow = [];
 
-        setAllBlogs(combined);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
+        const totalStatic = staticBlogs.length;
+        const staticCountOnPage = page === 1 ? totalStatic : 0;
+        const strapiLimit = pageSize - staticCountOnPage;
+        const strapiStart =
+          page === 1 ? 0 : (page - 1) * pageSize - totalStatic;
+
+        if (strapiLimit > 0) {
+          const strapiResponse = await fetch(
+            `${apiUrl}?pagination[start]=${strapiStart}&pagination[limit]=${strapiLimit}&sort=publishDate:desc&populate=*`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${apiKey}`,
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          const strapiData = await strapiResponse.json();
+          const strapiBlogs = strapiData.data.map((blog) => ({
+            ...blog,
+            isStrapi: true,
+          }));
+
+          blogsToShow = [
+            ...(page === 1
+              ? staticBlogs.map((b) => ({ ...b, isStrapi: false }))
+              : []),
+            ...strapiBlogs,
+          ];
+        } else {
+          blogsToShow = staticBlogs
+            .slice((page - 1) * pageSize, page * pageSize)
+            .map((b) => ({ ...b, isStrapi: false }));
+        }
+
+        setBlogs(blogsToShow);
+      } catch (err) {
+        console.error("Error fetching blogs:", err);
+        setError("Failed to load blogs. Please try again later.");
       } finally {
         setLoading(false);
       }
     };
 
     fetchBlogs();
-  }, []);
-
-  useEffect(() => {
-    const total = allBlogs.length;
-    const count = Math.ceil(total / pageSize);
-    setPageCount(count);
-
-    const start = (page - 1) * pageSize;
-    const end = start + pageSize;
-    setPaginatedBlogs(allBlogs.slice(start, end));
-  }, [allBlogs, page, pageSize]);
+  }, [page, pageSize]);
 
   return (
     <Container fluid className="about-section blog-container">
@@ -163,17 +190,19 @@ function About() {
               <span className="visually-hidden">Loading...</span>
             </Spinner>
           </div>
+        ) : error ? (
+          <div className="text-center text-danger my-4">{error}</div>
         ) : (
           <>
             <Row>
-              {paginatedBlogs.map((blog, idx) => (
+              {blogs.map((blog, idx) => (
                 <Col
                   key={blog.id || `static-${idx}`}
                   xxl={3}
                   xl={3}
                   lg={4}
                   md={6}
-                  sm={1}
+                  sm={12}
                   style={{ justifyContent: "center", paddingBottom: "50px" }}
                 >
                   {blog.isStrapi ? (
@@ -184,7 +213,7 @@ function About() {
                         content: blog.content,
                         readTime: blog.readTime,
                         stack: blog?.categories?.length
-                          ? blog.categories.map((category) => category.name)
+                          ? blog.categories.map((c) => c.name)
                           : [],
                         image: blog.image?.[0]?.url,
                         seoTitle: blog.seoTitle,
