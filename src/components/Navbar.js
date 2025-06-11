@@ -132,7 +132,7 @@ function NavBar() {
           </Nav>
         </Navbar.Collapse>
         <Nav.Item className="d-none d-md-block">
-          <div className="book-call-btn" onClick={trackTalk}>
+          <div className="book-btn" onClick={trackTalk}>
             Let's Talk
           </div>
         </Nav.Item>

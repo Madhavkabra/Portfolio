@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { BsChevronDoubleDown } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Particle from "../Particle";
@@ -47,28 +47,34 @@ function Consultation() {
         <Particle />
         <Container className="consultation-content">
           <Row>
-            <Col md={7} className="consultation-header">
-              <h1 className="heading"> Free 30-Minute Consultation!</h1>
-              <h4 className="sub-heading mb-4">
-                Need help with your product, startup, or portfolio? I’m here to help.
+            <Col md={7}>
+              <h1 className="heading-name">Free 30-Minute</h1>
+              <strong className="heading-name main-name">Consultation!</strong>
+              <h4 className="sub-heading home-about-body mb-4">
+                Need help with your product, startup, or portfolio? I’m here to
+                help.
               </h4>
-
-              <div className="text-white" style={{ paddingRight: 40 }}>
+              <div className="home-about-body" style={{ paddingRight: 40 }}>
                 <p>
-                  Let’s discuss your web app idea, team needs, or technical goals.
-                  Whether you need a frontend expert, project rescue, or just solid
-                  guidance – I’m here to help.
+                  Let’s discuss your web app idea, team needs, or technical
+                  goals. Whether you need a frontend expert, project rescue, or
+                  just solid guidance – I’m here to help.
                 </p>
-                {/* Offerings */}
-                <ul className="list-disc w-fit list-inside text-gray-700 mb-8 text-left flex flex-col justify-start max-w-md space-y-2">
-                  <li className="w-fit">Frontend architecture consulting (React, Next.js, Vite)</li>
-                  <li className="w-fit">UI/UX review & performance optimization</li>
-                  <li className="w-fit">Team augmentation or hiring consultation</li>
-                  <li className="w-fit">Tech stack decisions & best practices</li>
-                  <li className="w-fit">Codebase audits or project rescue advice</li>
+                <ul className="consultation-list">
+                  <li>
+                    Frontend architecture consulting (React, Next.js, Vite)
+                  </li>
+                  <li>UI/UX review & performance optimization</li>
+                  <li>Team augmentation or hiring consultation</li>
+                  <li>Tech stack decisions & best practices</li>
+                  <li>Codebase audits or project rescue advice</li>
                 </ul>
                 <div className="home-btns mt-4">
-                  <Button className="book-btn" size="lg" onClick={trackCalendly}>
+                  <Button
+                    className="book-btn"
+                    size="lg"
+                    onClick={trackCalendly}
+                  >
                     Book a Free Consultation
                   </Button>
                   <Button

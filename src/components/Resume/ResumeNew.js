@@ -51,7 +51,7 @@ function ResumeNew() {
       </Helmet>
       <Container fluid className="resume-section">
         <Particle />
-        <Row style={{ justifyContent: 'center', position: 'relative' }}>
+        <Row style={{ justifyContent: "center", position: "relative" }}>
           <a
             href={resume2025}
             download="Madhav_Resume_2025.pdf"
@@ -59,7 +59,11 @@ function ResumeNew() {
             rel="noopener noreferrer"
             onClick={trackDownload}
           >
-            <Button variant="primary" style={{ maxWidth: '250px' }}>
+            <Button
+              variant="primary"
+              style={{ maxWidth: "250px" }}
+              className="book-btn"
+            >
               <AiOutlineDownload />
               &nbsp;Download CV
             </Button>

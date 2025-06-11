@@ -17,7 +17,7 @@ function Github() {
           }}
         >
       <GitHubCalendar
-        username="rishavchanda"
+        username="buckyroberts"
         blockSize={15}
         blockMargin={5}
         color="#c084f5"
