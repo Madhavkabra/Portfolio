@@ -16,7 +16,7 @@ const BlogDetail = () => {
         const apiUrl = process.env.REACT_APP_STRAPI_API_URL;
 
         const allRes = await fetch(
-          `${apiUrl}?sort=publishDate:asc&populate=*`,
+          `${apiUrl}?pagination[page]=1&pagination[pageSize]=1000&sort=publishDate:asc&populate=*`,
           {
             headers: {
               Authorization: `Bearer ${apiKey}`,
