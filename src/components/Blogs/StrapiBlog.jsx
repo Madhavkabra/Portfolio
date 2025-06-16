@@ -3,7 +3,16 @@ import { Card, Badge } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const StrapiBlog = ({ blog }) => {
-  const { title, content, stack = [], readTime, link, image } = blog;
+  const {
+    title,
+    content,
+    description,
+    stack = [],
+    readTime,
+    link,
+    image,
+    isExternal,
+  } = blog;
   const navigate = useNavigate();
 
   const calculateReadTime = (text) => {
@@ -13,18 +22,26 @@ const StrapiBlog = ({ blog }) => {
   };
 
   const time = readTime || calculateReadTime(content);
-  const snippet = content
-    ? content.substring(0, 200) + "..."
-    : "No content available";
+  const baseText = content || description || "No content available";
+  const snippet =
+    baseText.substring(0, 200) + (baseText.length > 200 ? "..." : "");
 
   return (
     <Card
       className={link ? "blogCard" : "blogCard disabled"}
-      onClick={link ? () => navigate(link) : () => {}}
+      onClick={() => {
+        if (!link) return;
+        if (isExternal) {
+          window.open(link, "_blank", "noopener,noreferrer");
+        } else {
+          navigate(link);
+        }
+      }}
       style={{
         width: "18rem",
         textAlign: "left",
         background: "rgba(255, 255, 255, 0.2)",
+        cursor: link ? "pointer" : "default",
       }}
     >
       {image && (
@@ -49,9 +66,7 @@ const StrapiBlog = ({ blog }) => {
         <Card.Text
           className="blogContent normal-font"
           dangerouslySetInnerHTML={{
-            __html: content
-              ? `${content.substring(0, 200)}...`
-              : "No content available",
+            __html: snippet,
           }}
         />
 
@@ -60,8 +75,16 @@ const StrapiBlog = ({ blog }) => {
             <>
               <Card.Link
                 href={link}
+                target={isExternal ? "_blank" : "_self"}
+                rel={isExternal ? "noopener noreferrer" : undefined}
                 style={{ textDecoration: "none" }}
                 className="purple"
+                onClick={(e) => {
+                  if (!isExternal) {
+                    e.preventDefault();
+                    navigate(link);
+                  }
+                }}
               >
                 Read Blog
               </Card.Link>

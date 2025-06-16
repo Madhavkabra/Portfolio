@@ -24,7 +24,7 @@
     },
     "content": {
       "type": "richtext",
-      "required": true
+      "required": false
     },
     "image": {
       "type": "media",
@@ -59,6 +59,12 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "blog"
+    },
+    "externalLink": {
+      "type": "string"
+    },
+    "redirectToExternal": {
+      "type": "boolean"
     }
   }
 }

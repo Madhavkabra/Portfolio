@@ -389,11 +389,12 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::category.category'
     >;
-    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    content: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    externalLink: Schema.Attribute.String;
     image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
@@ -406,6 +407,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     publishDate: Schema.Attribute.Date &
       Schema.Attribute.DefaultTo<'2025-05-12'>;
     publishedAt: Schema.Attribute.DateTime;
+    redirectToExternal: Schema.Attribute.Boolean;
     seoDescription: Schema.Attribute.Text;
     seoTitle: Schema.Attribute.String;
     slug: Schema.Attribute.UID & Schema.Attribute.Required;
