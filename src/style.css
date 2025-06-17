@@ -2,13 +2,17 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 html {
-  --section-background-color: linear-gradient(to bottom left,
-      rgba(17, 16, 16, 0.582),
-      rgba(12, 8, 24, 0.904));
+  --section-background-color: linear-gradient(
+    to bottom left,
+    rgba(17, 16, 16, 0.582),
+    rgba(12, 8, 24, 0.904)
+  );
 
-  --image-gradient: linear-gradient(to bottom left,
-      rgba(17, 16, 16, 0.678),
-      rgba(12, 10, 22, 0.863));
+  --image-gradient: linear-gradient(
+    to bottom left,
+    rgba(17, 16, 16, 0.678),
+    rgba(12, 10, 22, 0.863)
+  );
 
   --imp-text-color: #c770f0;
 }
@@ -341,7 +345,7 @@ button:focus {
   border-radius: 5px !important;
   line-height: 1;
   padding: 10px 10px !important;
-  min-height: fit-content ;  
+  min-height: fit-content;
   cursor: pointer;
 }
 
@@ -485,10 +489,11 @@ button:focus {
 
 .blogContent {
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 3;
   text-align: justify;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: 72px;
 }
 
 .blogTech {
@@ -506,7 +511,7 @@ button:focus {
   cursor: not-allowed !important;
 }
 
-.disabled>* {
+.disabled > * {
   pointer-events: none;
 }
 
@@ -538,7 +543,7 @@ button:focus {
   color: rgb(181, 85, 201) !important;
 }
 
-.blogTech>h6 {
+.blogTech > h6 {
   margin: 0;
 }
 
@@ -621,7 +626,7 @@ button:focus {
   box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.561) !important;
 }
 
-.project-card-view>.card-body {
+.project-card-view > .card-body {
   display: grid;
   grid-template-rows: auto 1fr;
 }
@@ -941,7 +946,7 @@ button:focus {
   font-size: 14px;
 }
 
-.testimonial-card-view>.card-body {
+.testimonial-card-view > .card-body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -978,7 +983,7 @@ button:focus {
   }
 }
 
-.experience-card-view>.card-body {
+.experience-card-view > .card-body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1042,7 +1047,7 @@ button:focus {
 }
 
 .normal-font * {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   /* or any font you prefer */
   font-weight: normal;
   /* Make sure all text is normal weight */
@@ -1084,4 +1089,12 @@ button:focus {
   position: relative;
   padding-bottom: 70px !important;
   padding-top: 140px !important;
+}
+
+.blogTags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
 }

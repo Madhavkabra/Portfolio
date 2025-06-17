@@ -52,12 +52,21 @@ const StrapiBlog = ({ blog }) => {
           style={{ height: "200px", objectFit: "cover" }}
         />
       )}
-      <Card.Body>
-        {stack.map((tech, i) => (
-          <Badge key={i} bg="rgb(244 244 244 / 99%)" className="blogTech">
-            <h6>{tech}</h6>
-          </Badge>
-        ))}
+      <Card.Body
+        style={{
+          minHeight: "300px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
+        <div className="blogTags">
+          {stack.map((tech, i) => (
+            <Badge key={i} bg="rgb(244 244 244 / 99%)" className="blogTech">
+              <h6>{tech}</h6>
+            </Badge>
+          ))}
+        </div>
 
         <Card.Title className="blogTitle purple">
           {title?.split(" ").slice(0, 10).join(" ")}
