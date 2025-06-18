@@ -1,16 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-// Load environment variables based on environment
-const isLocalhost = process.env.NODE_ENV === 'development' ||
-    process.env.REACT_APP_STRAPI_BASE_URL?.includes('localhost') ||
-    process.env.REACT_APP_STRAPI_API_URL?.includes('localhost');
+// Simple environment detection
+const isDevelopment = process.env.NODE_ENV === 'development';
+const envFile = isDevelopment ? '.env.local' : '.env';
 
-const envFile = isLocalhost ? '.env.local' : '.env';
 require('dotenv').config({ path: path.join(__dirname, '..', envFile) });
 
-console.log(`Loading environment from: ${envFile}`);
-console.log(`Environment: ${isLocalhost ? 'Development (localhost)' : 'Production'}`);
+console.log(`Environment: ${isDevelopment ? 'Development' : 'Production'}`);
+console.log(`Loading from: ${envFile}`);
 
 const generateSitemap = async () => {
     const baseUrl = 'https://mady.techsavvyfit.com';

@@ -5,12 +5,11 @@ const Sitemap = () => {
 
     useEffect(() => {
         const generateSitemap = async () => {
-            // Determine if we're in development or production
-            const isLocalhost = process.env.NODE_ENV === 'development' ||
-                window.location.hostname === 'localhost' ||
-                window.location.hostname === '127.0.0.1';
+            // Simple environment-based base URL
+            const baseUrl = process.env.NODE_ENV === 'development'
+                ? 'http://localhost:3000'
+                : 'https://mady.techsavvyfit.com';
 
-            const baseUrl = isLocalhost ? 'http://localhost:3000' : 'https://mady.techsavvyfit.com';
             const currentDate = new Date().toISOString();
 
             // Static routes from your router

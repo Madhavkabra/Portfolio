@@ -37,8 +37,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "dev": "concurrently \"cd backend && npm run dev\" \"npm run start\"",
-    "generate-sitemap": "NODE_ENV=development node scripts/generate-sitemap.js",
-    "generate-sitemap:prod": "NODE_ENV=production node scripts/generate-sitemap.js"
+    "generate-sitemap": "NODE_ENV=development node scripts/generate-sitemap.js"
   },
   "eslintConfig": {
     "extends": [
