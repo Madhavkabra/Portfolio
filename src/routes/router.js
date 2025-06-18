@@ -8,6 +8,7 @@ import Resume from "../components/Resume/ResumeNew";
 import Experience from "../components/Experience/Experience";
 import Consultation from "../components/Consultation/Consultation";
 import BlogDetail from "../components/Blogs/BlogDetail";
+import Sitemap from "../components/Sitemap";
 
 const routes = [
   {
@@ -24,6 +25,10 @@ const routes = [
       { path: "resume", element: <Resume /> },
       { path: "*", element: <Home /> },
     ],
+  },
+  {
+    path: "/sitemap.xml",
+    element: <Sitemap />,
   },
 ];
 
